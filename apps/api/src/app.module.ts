@@ -5,12 +5,32 @@ import { TrpcModule } from './trpc/trpc.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { join } from 'path';
+import { AuthModule } from './auth/auth.module';
+import { HistoryModule } from './history/history.module';
+import { TextAiModule } from './text-ai/text-ai.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({
-    isGlobal: true,
-  }),
-    TrpcModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => {
+        return {
+          type: 'postgres',
+          url: configService.get('DATABASE_URL'),
+          entities: [join(__dirname, '**/*.entity.{ts,js}')],
+          synchronize: false,
+        };
+      },
+      inject: [ConfigService],
+    }),
+    TrpcModule,
+    AuthModule,
+    HistoryModule,
+    TextAiModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -20,3 +20,4 @@ async function bootstrap() {
   await app.listen(8000);
 }
 bootstrap();
+console.log('Server running at http://localhost:8000');
