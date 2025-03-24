@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      eslint-config-prettier:
+        specifier: ^10.1.1
+        version: 10.1.1(eslint@9.22.0)
+      eslint-plugin-prettier:
+        specifier: ^5.0.0
+        version: 5.2.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.1(eslint@9.22.0))(eslint@9.22.0)(prettier@3.5.3)
     devDependencies:
       prettier:
         specifier: ^3.5.3
@@ -6126,6 +6133,16 @@ snapshots:
       eslint: 8.57.1
 
   eslint-plugin-only-warn@1.1.0: {}
+
+  eslint-plugin-prettier@5.2.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.1(eslint@9.22.0))(eslint@9.22.0)(prettier@3.5.3):
+    dependencies:
+      eslint: 9.22.0
+      prettier: 3.5.3
+      prettier-linter-helpers: 1.0.0
+      synckit: 0.10.2
+    optionalDependencies:
+      '@types/eslint': 9.6.1
+      eslint-config-prettier: 10.1.1(eslint@9.22.0)
 
   eslint-plugin-prettier@5.2.4(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.3):
     dependencies:
