@@ -12,6 +12,7 @@
 
 @layer base {
   html {
+      @apply bg-coffeeBlack;
   }
 }
 
