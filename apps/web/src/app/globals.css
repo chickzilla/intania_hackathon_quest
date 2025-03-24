@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --coffeeBlack: #212121;
+    --blackGray: #171717;
+    --borderColor: #71717a;
+  }
+}
+
+@layer base {
+  html {
+  }
+}
+
+@keyframes moveUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.move-up {
+  animation: moveUp 0.5s ease-in forwards;
+  animation-delay: 0s;
+}
+
+.move-up-delay-1 {
+  animation: moveUp 0.5s ease-in forwards;
+  animation-delay: 0.1s;
+}
+
+.move-up-delay-2 {
+  animation: moveUp 0.5s ease-in forwards;
+  animation-delay: 0.15s;
+}
+
+.move-up-delay-3 {
+  animation: moveUp 0.5s ease-in forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-delay-0 {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 0.5s;
+}
+
+.fade-in-delay-1 {
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 1s;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 2s;
+}
+
+@keyframes moveRightToLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.move-right-to-left-0 {
+  animation: moveRightToLeft 0.3s ease-in forwards;
+  animation-delay: 0s;
+}
+
+.move-right-to-left-1 {
+  animation: moveRightToLeft 0.3s ease-in forwards;
+  animation-delay: 0.3s;
+}
+
+.move-right-to-left-2 {
+  animation: moveRightToLeft 0.3s ease-in forwards;
+  animation-delay: 0.6s;
+}
+
+.move-right-to-left-3 {
+  animation: moveRightToLeft 0.3s ease-in forwards;
+  animation-delay: 0.9s;
+}
+
+.move-right-to-left-4 {
+  animation: moveRightToLeft 0.3s ease-in forwards;
+  animation-delay: 1.2s;
+}
+
+.move-right-to-left-5 {
+  animation: moveRightToLeft 0.3s ease-in forwards;
+  animation-delay: 1.5s;
+}
+
+@layer components {
+  .title-1 {
+    @apply text-4xl md:text-5xl lg:text-7xl text-white font-semibold;
+  }
+
+  .title-2 {
+    @apply text-4xl text-white font-bold lg:text-6xl;
+  }
+
+  .description {
+    @apply text-gray-400;
+  }
+
+  .subtitle {
+    @apply text-xl text-white;
+  }
+
+  .navbarText {
+    @apply md:text-base;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* adjust as needed */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray; /* change this to the color you want */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* change this to the color you want */
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  @apply rounded-md;
+}

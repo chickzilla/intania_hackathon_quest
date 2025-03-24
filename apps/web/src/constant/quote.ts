@@ -1,0 +1,10 @@
+import { Mood } from "./enum"
+export const MoodDescription = new Map<Mood, string>([
+    [Mood.JOY, "Her joy is a radiant dance, a melody of laughter and light that transforms the ordinary into extraordinary. When she feels joy, the world brightens, and every moment becomes a celebration of life's simple pleasures."],
+    [Mood.ANGER, "When she is angry, her spirit ignites like a storm, a tempest of raw emotion that shakes the very ground beneath her. In those moments, her passion and intensity carve a path of clarity through the chaos, revealing the fierce strength of her convictions."],
+    [Mood.FEAR, 
+        "When fear grips her, it wraps around her like a shadow, clouding her thoughts and freezing her steps. Yet within that fear lies a powerful call to courage, urging her to confront the unknown with a steady heart and unwavering resolve. To support her, offer a hand to hold, a listening ear, and gentle encouragement to face her fears with the strength she already possesses."],
+    [Mood.LOVE, "Her love is a gentle embrace, a warm light that shines through the darkness, illuminating the beauty and wonder of the world around her. When she loves, she gives freely and unconditionally, creating a space of safety and acceptance where all are welcome."],
+    [Mood.SADNESS, "In her sadness, she is a gentle rain, a quiet storm that weeps for the sorrows of the world. When she feels sadness, she carries the weight of the world on her shoulders, a burden of empathy and compassion that connects her to the pain and suffering of others."],
+    [Mood.SURPRISE, "Surprise is a fleeting moment, a spark of wonder that lights up her eyes and quickens her heart. In those moments, she is a child again, filled with the joy of discovery and the thrill of the unexpected. To surprise her is to awaken her sense of wonder and delight, to remind her of the magic that lies just beyond the edge of the known."],
+]);
