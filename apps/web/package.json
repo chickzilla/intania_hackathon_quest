@@ -12,8 +12,6 @@
   "dependencies": {
     "@repo/ui": "workspace:*",
     "@trpc/client": "^11.0.0",
-    "@trpc/next": "^11.0.0",
-    "@trpc/react-query": "^11.0.0",
     "mysql": "^2.18.1",
     "next": "^15.2.1",
     "react": "^19.0.0",

@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { AuthService } from "src/auth/auth.service";
 import { TrpcService } from "../trpc.service";
 import { z } from "zod";
+import { TRPCError } from "@trpc/server";
 
 @Injectable()
 export class AuthRouter {

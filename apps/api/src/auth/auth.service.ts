@@ -17,7 +17,7 @@ export class AuthService {
   ) {}
 
   async signUp(email:string, password:string): Promise<string> {
-
+    console.log(email, password);
     try {
       const existingUser = await this.userRepository.findOne({
         where: { email },
