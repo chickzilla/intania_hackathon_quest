@@ -1,5 +1,4 @@
 'use client';
-import styles from './page.module.css';
 import { useEffect } from 'react';
 import { callHelloAPI } from './services/test';
 
@@ -11,5 +10,9 @@ export default function Home() {
     }
     fetchData();
   }, []);
-  return <main className={styles.main}></main>;
+  return (
+    <main className={''}>
+      <div className="text-blue-400">Hi</div>
+    </main>
+  );
 }
