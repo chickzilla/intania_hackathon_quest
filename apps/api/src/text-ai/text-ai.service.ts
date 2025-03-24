@@ -5,10 +5,10 @@ import { UserHistory } from 'src/entities/userHistory.entity';
 import { CustomRequest } from 'src/interfaces/customRequest';
 import TextResponseData from 'src/interfaces/textResponseData';
 import { Repository } from 'typeorm';
-import { config } from 'dotenv';
+//import { config } from 'dotenv';
 import { Response } from 'express';
 
-config();
+//config();
 
 @Injectable()
 export class TextAiService {

@@ -18,10 +18,11 @@ import { TextAiModule } from './text-ai/text-ai.module';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
         return {
-          type: 'postgres',
-          url: configService.get('DATABASE_URL'),
+          type: 'mysql',
+          url: configService.get<string>('DATABASE_URL'),
           entities: [join(__dirname, '**/*.entity.{ts,js}')],
-          synchronize: false,
+          driver: require('mysql2'),
+          synchronize: true,
         };
       },
       inject: [ConfigService],

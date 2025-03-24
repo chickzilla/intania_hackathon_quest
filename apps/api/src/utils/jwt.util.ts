@@ -1,7 +1,4 @@
 import { sign, verify } from 'jsonwebtoken';
-import { config } from 'dotenv';
-
-config();
 
 const ACCESS_KEY = process.env.ACCESS_KEY || 'default_secret_key';
 

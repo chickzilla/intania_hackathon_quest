@@ -1,12 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { Response } from 'express';
+import {
+  ForbiddenException,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/user.entity';
-import { CustomRequest } from 'src/interfaces/customRequest';
 import { Repository } from 'typeorm';
-import * as argon2 from 'argon2';
 import { generateKey } from 'src/utils/jwt.util';
-import { SignInDTO, SignInWithSSODTO, SignOutDTO } from './auth.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -15,19 +16,17 @@ export class AuthService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async signUp(req: SignInDTO) {
-    const { email, password } = req;
-    console.log(email, password);
+  async signUp(email:string, password:string): Promise<string> {
 
     try {
       const existingUser = await this.userRepository.findOne({
         where: { email },
       });
       if (existingUser) {
-        return JSON.stringify({ error: 'Email already exists' });
+        throw new ForbiddenException('Email already exists');
       }
 
-      const hashedPassword = await argon2.hash(password);
+      const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = this.userRepository.create({
         email,
         password: hashedPassword,
@@ -35,37 +34,38 @@ export class AuthService {
       });
       await this.userRepository.save(newUser);
 
-      return JSON.stringify({ response: 'Created successfully' });
+      const jwtToken = generateKey(email);
+
+      return jwtToken;
     } catch (error) {
-      return JSON.stringify({ error: error.message });
+      throw new InternalServerErrorException(error.message);
     }
   }
 
-  async signIn(req: SignInDTO) {
-    const { email, password } = req;
+  async signIn(email:string, password:string): Promise<string> {
 
     try {
       const user = await this.userRepository.findOne({ where: { email } });
       if (!user) {
-        return JSON.stringify({ error: 'Email not found' });
+        throw new ForbiddenException('Email not found');
       }
 
       if (user.onlySSO) {
-        return JSON.stringify({ error: 'This email can only be accessed via SSO' });
+        throw new ForbiddenException('This account is SSO only');
       }
 
-      const isValidPassword = await argon2.verify(password, user.password);
+      const isValidPassword = await bcrypt.compare(password, user.password);
       if (!isValidPassword) {
-        return JSON.stringify({ error: 'Wrong password' });
+        throw new ForbiddenException('Invalid password');
       }
 
       const jwtToken = generateKey(email);
-      return JSON.stringify({ response: jwtToken });
+      return jwtToken;
     } catch (error) {
-      return JSON.stringify({ error: error.message });
+      throw new InternalServerErrorException(error.message);
     }
   }
-
+/*
   async signInWithSSO(req: SignInWithSSODTO) {
     const { email } = req;
 
@@ -85,5 +85,5 @@ export class AuthService {
 
   signOut(req: SignOutDTO) {
     return JSON.stringify({ message: 'Signed out' });
-  }
+  }*/
 }
