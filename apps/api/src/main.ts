@@ -8,8 +8,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const expressApp = express();
 
-  const trpcRouter = app.get(TrpcRouter);
-  trpcRouter.applyMiddleware(expressApp);
+  const trpc = app.get(TrpcRouter);
+  trpc.applyMiddleware(app);
 
   app.enableCors({
     origin: process.env.CLIENT_URL,
@@ -20,3 +20,4 @@ async function bootstrap() {
   await app.listen(8000);
 }
 bootstrap();
+console.log('Server running at http://localhost:8000');

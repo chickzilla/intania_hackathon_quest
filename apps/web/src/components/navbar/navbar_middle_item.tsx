@@ -1,32 +1,19 @@
 "use client";
 import { useRouter } from "next/navigation";
-import NavbarMiddleSubItem from "./navbar_middle_sub_item";
-import {
-	NavigationMenu,
-	NavigationMenuContent,
-	NavigationMenuIndicator,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-	NavigationMenuTrigger,
-	NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
-import NavbarDropdownItem from "./nav_bar_dropdown_item";
-import Link from "next/link";
 
 export default function NavbarMiddleItem({
-	isTextBlack,
+  isTextBlack,
 }: {
-	isTextBlack: boolean;
+  isTextBlack: boolean;
 }) {
-	const router = useRouter();
-	return (
-		<div
-			className={`text-center items-center font-light flex flex-row space-x-7 navbarText ${
-				isTextBlack ? "text-black" : "text-white"
-			}`}
-		>
-			{/*
+  const router = useRouter();
+  return (
+    <div
+      className={`text-center items-center font-light flex flex-row space-x-7 navbarText ${
+        isTextBlack ? "text-black" : "text-white"
+      }`}
+    >
+      {/*
 
 			<Link
 				href="/board/history"
@@ -35,7 +22,7 @@ export default function NavbarMiddleItem({
 				<div className="hover:cursor-pointer ">History</div>
 			</Link>
 				*/}
-			{/*
+      {/*
 
 					<NavigationMenu>
 						<NavigationMenuList>
@@ -57,13 +44,13 @@ export default function NavbarMiddleItem({
 					</NavigationMenu>
 
 					*/}
-			{/*
+      {/*
 				<Link
 					href="https://github.com/chickzilla/her-feeling-client"
 					className="hover:bg-slate-200 px-4 rounded-xl hover:bg-opacity-20 transition duration-200"
 				>
 					<div className="hover:cursor-pointer ">Github</div>
 				</Link>*/}
-		</div>
-	);
+    </div>
+  );
 }

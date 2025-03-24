@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.4
+    container_name: hackathon-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: hackathon-db
+      MYSQL_USER: hackathon-user
+      MYSQL_PASSWORD: hackathon-password
+      MYSQL_ROOT_PASSWORD: hackathon-root-password
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
