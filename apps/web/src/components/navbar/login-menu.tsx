@@ -15,6 +15,22 @@ export default function LoginMenu({ isTextBlack }: { isTextBlack: boolean }) {
           <div className="hover:cursor-pointer ">Predict as guest</div>
         </Link>
       ) : null}
+      <Link
+        href="/auth/sign-up"
+        className={`${
+          isTextBlack ? "hover:bg-black" : "hover:bg-slate-200"
+        } px-4 rounded-xl hover:bg-opacity-20 transition duration-200 `}
+      >
+        <div className="hover:cursor-pointer navbarText">Sign up</div>
+      </Link>
+      <Link
+        href="/auth/sign-in"
+        className={`${
+          isTextBlack ? "hover:bg-black" : "hover:bg-slate-200"
+        } px-4 rounded-xl hover:bg-opacity-20 transition duration-200`}
+      >
+        <div className="hover:cursor-pointer navbarText">Sign in</div>
+      </Link>
     </div>
   );
 }

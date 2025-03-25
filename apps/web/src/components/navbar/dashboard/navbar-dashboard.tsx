@@ -55,7 +55,7 @@ export default function NavbarDashBoard() {
       <nav
         className={`h-full flex flex-col max-w-60 justify-between overflow-x-hidden transition-all overflow-y-hidden no-scrollbar py-14 ${
           expanded ? "px-10" : "px-4"
-        } fade-in-delay-0 md:pb-5 `}
+        } fade-in-delay-0 md:pb-28 `}
       >
         <div className="flex flex-col justify-around items-center gap-3.5 px-2">
           {isSmallScreen && expanded && (
@@ -98,32 +98,16 @@ export default function NavbarDashBoard() {
               expanded ? "w-full" : "w-0"
             }`}
           >
-            Intania Hackathon
+            Created By
           </span>
           <hr className="w-full bg-[#041016] my-5" />
         </div>
         <NavbarItem
           icon={<IoLogoGithub size={25} />}
-          text={"max"}
+          text={process.env.NEXT_PUBLIC_GITHUB_NAME || "mig"}
           expanded={expanded}
           active={pathname.startsWith("/board/noway")}
-          href={"https://github.com/m4xkub"}
-          isBlank={true}
-        />
-        <NavbarItem
-          icon={<IoLogoGithub size={25} />}
-          text={"mig"}
-          expanded={expanded}
-          active={pathname.startsWith("/board/noway")}
-          href={"https://github.com/chickzilla"}
-          isBlank={true}
-        />
-        <NavbarItem
-          icon={<IoLogoGithub size={25} />}
-          text={"reaw"}
-          expanded={expanded}
-          active={pathname.startsWith("/board/noway")}
-          href={"https://github.com/ReawEiEi"}
+          href={process.env.NEXT_PUBLIC_GITHUB_LINK || "#"}
           isBlank={true}
         />
       </nav>

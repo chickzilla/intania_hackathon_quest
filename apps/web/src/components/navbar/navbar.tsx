@@ -1,8 +1,20 @@
+"use client";
 import Image from "next/image";
 import NavbarMiddleItem from "./navbar_middle_item";
 import Link from "next/link";
+import LoginMenu from "./login-menu";
+import AvartarProfile from "./avatarProfile";
+import { useEffect, useState } from "react";
 
 export default function Navbar({ isTextBlack }: { isTextBlack: boolean }) {
+  const [auth, setAuth] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setAuth(localStorage.getItem("jwt"));
+    }
+  }, []);
+
   return (
     <nav
       className={`fixed top-0 w-screen h-16 px-8 items-center z-30 
@@ -23,9 +35,15 @@ export default function Navbar({ isTextBlack }: { isTextBlack: boolean }) {
             </div>
           </div>
         </Link>
+
         <NavbarMiddleItem isTextBlack={isTextBlack} />
-        {/*         <AvartarProfile />
-         */}{" "}
+        {auth ? (
+          <AvartarProfile />
+        ) : (
+          <div>
+            <LoginMenu isTextBlack={isTextBlack} />
+          </div>
+        )}
       </div>
     </nav>
   );

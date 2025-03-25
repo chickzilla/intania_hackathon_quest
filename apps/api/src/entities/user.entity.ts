@@ -10,9 +10,9 @@ export class User {
 
   @Column()
   password: string;
-
+/* 
   @Column({ default: false })
-  onlySSO: boolean;
+  onlySSO: boolean; */
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
