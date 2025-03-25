@@ -1,17 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/entities/user.entity';
 import { UserHistory } from 'src/entities/userHistory.entity';
 import { Repository } from 'typeorm';
-import { Response } from 'express';
 
 @Injectable()
 export class HistoryService {
   constructor(
     @InjectRepository(UserHistory)
     private readonly historyRepository: Repository<UserHistory>,
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
   ) {}
 
   async createUserHistory(

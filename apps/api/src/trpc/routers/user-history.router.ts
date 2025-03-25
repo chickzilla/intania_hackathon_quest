@@ -1,7 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { TrpcService } from "../trpc.service";
 import { z } from "zod";
-import { TextAiService } from "src/text-ai/text-ai.service";
 import { HistoryService } from "src/history/history.service";
 
 

@@ -1,24 +1,24 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
 
-import * as express from 'express';
-import { TrpcRouter } from './trpc/trpc.router';
+import * as express from "express";
+import { TrpcRouter } from "./trpc/trpc.router";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const expressApp = express();
 
   const trpc = app.get(TrpcRouter);
-  trpc.applyMiddleware(app)
+  trpc.applyMiddleware(app);
 
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: "http://localhost:3000",
     credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS'], 
+    methods: ["GET", "POST", "OPTIONS"],
   });
 
   app.use(expressApp);
-  await app.listen(8080);
+  await app.listen(8888);
 }
 bootstrap();
-console.log('Server running at http://localhost:8080');
+console.log("Server running at http://localhost:8888");

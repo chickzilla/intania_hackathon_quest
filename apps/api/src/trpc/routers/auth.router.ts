@@ -11,7 +11,7 @@ export class AuthRouter {
   ) {}
 
   appRouter = this.trpcService.router({
-    sigUp: this.trpcService.trpc.procedure
+    signUp: this.trpcService.trpc.procedure
       .input(
         z.object({
           email: z.string().email().min(1, { message: "Email is required" }),

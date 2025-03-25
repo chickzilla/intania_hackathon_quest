@@ -1,4 +1,4 @@
-interface TextResponseData {
+export interface TextResponseData {
   data: {
     sadness: number;
     joy: number;
@@ -8,8 +8,6 @@ interface TextResponseData {
     surprise: number;
   };
 }
-
-export default TextResponseData;
 
 export interface AiResponseData {
   sadness: number;
