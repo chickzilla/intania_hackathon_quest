@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/user.entity';
 import { UserHistory } from 'src/entities/userHistory.entity';
-import { CustomRequest } from 'src/interfaces/customRequest';
 import { Repository } from 'typeorm';
 import { Response } from 'express';
 
@@ -39,7 +38,7 @@ export class HistoryService {
     return await this.historyRepository.save(newHistory);
   }
 
-  async getUserHistories(req: CustomRequest, res: Response) {
+  /*async getUserHistories(req: CustomRequest, res: Response) {
     const userId = req.userId;
     const {
       limit = 5,
@@ -83,5 +82,5 @@ export class HistoryService {
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
-  }
+  }*/
 }

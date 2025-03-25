@@ -5,7 +5,6 @@ import { TrpcModule } from './trpc/trpc.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { join } from 'path';
-import { AuthModule } from './auth/auth.module';
 import { HistoryModule } from './history/history.module';
 import { TextAiModule } from './text-ai/text-ai.module';
 
@@ -28,7 +27,6 @@ import { TextAiModule } from './text-ai/text-ai.module';
       inject: [ConfigService],
     }),
     TrpcModule,
-    AuthModule,
     HistoryModule,
     TextAiModule,
   ],

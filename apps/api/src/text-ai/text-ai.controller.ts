@@ -1,13 +1,18 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { TextAiService } from './text-ai.service';
 import { BodyDTO } from 'src/dto/body.dto';
 
-@Controller('text-ai')
+@Controller('x')
 export class TextAiController {
   constructor(private readonly textAIService: TextAiService) {}
 
-  @Post('get-result-text')
+  @Post('a')
   getResultText(@Body() body: BodyDTO) {
-    return this.textAIService.sendPrompt(body.req, body.res);
+    return this.textAIService.sendPrompt(body.prompt);
+  }
+
+  @Get('s')
+  getHello(): string {
+    return "Hello World!s";
   }
 }

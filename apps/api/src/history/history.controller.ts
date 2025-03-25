@@ -6,8 +6,8 @@ import { BodyDTO } from 'src/dto/body.dto';
 export class HistoryController {
   constructor(private readonly historyService: HistoryService) {}
 
-  @Get('get-histories')
+  /*@Get('get-histories')
   getHistories(@Body() body: BodyDTO) {
     return this.historyService.getUserHistories(body.req, body.res);
-  }
+  }*/
 }
