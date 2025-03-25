@@ -1,3 +1,11 @@
+# What is this project about???
+Have you ever feel confuse about text?
+What is your girlfriend/boyfriend try to say?
+Are they Angry??? Or they are Happy?
+this application will tell you what mood is in that sent text.
+with trained data and optimized model will help you find out what is it about!!!
+
+
 # Turborepo starter
 
 This Turborepo starter is maintained by the Turborepo core team.
