@@ -5,6 +5,8 @@ Are they Angry??? Or they are Happy?
 this application will tell you what mood is in that sent text.
 with trained data and optimized model will help you find out what is it about!!!
 
+Also this project have ci/cd pipeline that connect to AWS container registry and AWS App-runner for deployment
+
 
 # Turborepo starter
 
