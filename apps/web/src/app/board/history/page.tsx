@@ -7,6 +7,7 @@ import GetHistories from "@/services/getHistories";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SelectPanel from "@/components/history/selectPanel";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const [history, setHistory] = useState<History[]>([]);
@@ -18,6 +19,20 @@ export default function Page() {
   const [sortBy, setSortBy] = useState<string>("createdAt");
   const [sortOrder, setSortOrder] = useState<string>("desc");
   const [chlidGetData, setChildGetData] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      router.push("/auth/sign-in");
+    } else {
+      fetchHistory();
+      setLoading(false);
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const fetchHistory = async (pageOnclick?: number) => {
     try {
@@ -81,6 +96,8 @@ export default function Page() {
     fetchHistory(1);
     setPage(1);
   }, [sortBy, sortOrder]);
+
+  if (isAuthenticated === null) return null;
 
   return (
     <main className="w-[100vw] px-10 lg:px-20 space-y-12 h-[100vh] overflow-y-hidden text-black bg-coffeeBlack overflow-x-hidden pb-20 py-[120px] pl-[140px] lg:pl-10">

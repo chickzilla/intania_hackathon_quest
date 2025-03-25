@@ -6,9 +6,6 @@ export class UserHistory {
   id: number;
 
   @Column()
-  userId: number;
-
-  @Column()
   prompt: string;
 
   @Column('float')

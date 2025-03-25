@@ -31,9 +31,7 @@ export class TextAiService {
       );
       const responseData = response.data;
 
-      /*if (req.email) {
-        const newHistory = this.historyRepository.create({
-          userId: req.userId,
+      const newHistory = this.historyRepository.create({
           prompt,
           loveProb: responseData.data.love,
           sadnessProb: responseData.data.sadness,
@@ -42,8 +40,7 @@ export class TextAiService {
           surpriseProb: responseData.data.surprise,
           fearProb: responseData.data.fear,
         });
-        await this.historyRepository.save(newHistory);
-      }*/
+      await this.historyRepository.save(newHistory);
 
       return {
         sadness: responseData.data.sadness,
@@ -53,7 +50,6 @@ export class TextAiService {
         fear: responseData.data.fear,
         surprise: responseData.data.surprise,
       }
-      console.log(responseData);
     } catch (error) {
       throw new Error('Failed to communicate with Text-AI service');
     }

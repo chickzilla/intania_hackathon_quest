@@ -3,16 +3,15 @@
 }*/
 
 export interface History{
-    UserId: number;
-    ID: number;
-    Prompt : string;
-    SadnessProb : number;
-    LoveProb : number;
-    JoyProb : number;
-    AngryProb : number;
-    FearProb : number;
-    SurpriseProb : number;
-    CreatedAt : Date;
+    id: number;
+    prompt : string;
+    sadnessProb : number;
+    loveProb : number;
+    joyProb : number;
+    angryProb : number;
+    fearProb : number;
+    surpriseProb : number;
+    createdAt : Date;
 }
 
 export interface HistoryForTable{

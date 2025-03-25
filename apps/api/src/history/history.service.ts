@@ -15,17 +15,10 @@ export class HistoryService {
   ) {}
 
   async createUserHistory(
-    email: string,
     prompt: string,
     response: any,
   ): Promise<UserHistory> {
-    const user = await this.userRepository.findOne({ where: { email } });
-    if (!user) {
-      throw new Error('Email not found');
-    }
-
     const newHistory = this.historyRepository.create({
-      userId: user.id,
       prompt,
       loveProb: response.Data.Love,
       sadnessProb: response.Data.Sadness,
@@ -38,14 +31,13 @@ export class HistoryService {
     return await this.historyRepository.save(newHistory);
   }
 
-  /*async getUserHistories(req: CustomRequest, res: Response) {
-    const userId = req.userId;
-    const {
-      limit = 5,
-      offset = 0,
-      sortBy = 'createdAt',
-      orderBy = 'DESC',
-    } = req.query;
+  async getUserHistories(
+    limit: number = 5,
+    offset: number = 0,
+    sortBy: string = "createdAt",
+    orderBy: string = "DESC"
+  ): Promise<{ data: { items: UserHistory[]; metaData: { total: number; count: number } } }> {
+    
 
     const validSortFields = [
       'createdAt',
@@ -67,20 +59,21 @@ export class HistoryService {
 
     try {
       const [histories, total] = await this.historyRepository.findAndCount({
-        where: { userId },
         order: { [sortField]: orderDirection },
         take: Number(limit),
         skip: Number(offset),
       });
 
-      return res.status(200).json({
-        data: {
+      return { data: {
           items: histories,
-          metaData: { total, count: histories.length },
+          metaData: {
+            total: total,
+            count: histories.length,
+          },
         },
-      });
+      };
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      throw new Error('Failed to fetch user histories');
     }
-  }*/
+  }
 }
