@@ -1,21 +1,17 @@
 "use client";
 import { FeelingResponse } from "@/interface/feeling";
 import HaveResult from "./have-result";
-import { X } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
 	Drawer,
-	DrawerClose,
 	DrawerContent,
 	DrawerDescription,
 	DrawerHeader,
 	DrawerTitle,
 } from "../ui/drawer";
-import { Button } from "@mui/material";
 import { Mood } from "@/constant/enum";
 import { MoodDescription } from "@/constant/quote";
 import NoResult from "./no-result";
-import { Send } from "lucide-react";
 
 export default function ResultPane({
 	resultPrompt,

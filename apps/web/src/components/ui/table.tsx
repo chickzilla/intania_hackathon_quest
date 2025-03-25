@@ -8,10 +8,9 @@ const Table = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<div className="relative w-full overflow-x-auto">
 		{" "}
-		{/* Ensure x-axis overflow */}
 		<table
 			ref={ref}
-			className={cn("min-w-full caption-bottom text-sm table-auto", className)} // Use min-w-full and table-auto
+			className={cn("min-w-full caption-bottom text-sm table-auto", className)} 
 			{...props}
 		/>
 	</div>
@@ -69,7 +68,7 @@ const TableHead = React.forwardRef<
 		ref={ref}
 		className={cn(
 			"h-12 px-4 text-left align-middle font-medium text-gray-300 truncate",
-			"overflow-hidden text-ellipsis whitespace-nowrap min-w-[120px]", // Add min-w to ensure consistent width
+			"overflow-hidden text-ellipsis whitespace-nowrap min-w-[120px]",
 			className
 		)}
 		{...props}
@@ -85,7 +84,7 @@ const TableCell = React.forwardRef<
 		ref={ref}
 		className={cn(
 			"p-4 align-middle truncate",
-			"overflow-hidden text-ellipsis whitespace-nowrap min-w-[120px]", // Add min-w to ensure consistent width
+			"overflow-hidden text-ellipsis whitespace-nowrap min-w-[120px]",
 			className
 		)}
 		{...props}

@@ -1,9 +1,9 @@
 "use client";
-import Feeling, { FeelingResponse } from "@/interface/feeling";
+import { FeelingResponse } from "@/interface/feeling";
 import getFeeling from "@/services/getFeeling";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useToast } from "../ui/use-toast";
-import { Send, Award, ArrowUp } from "lucide-react";
+import { Award, ArrowUp } from "lucide-react";
 import { Skeleton } from "../ui/skeleton";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 

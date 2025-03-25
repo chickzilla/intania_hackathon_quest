@@ -1,5 +1,5 @@
 import { trpc } from "@/app/trpc";
-import Feeling, { FeelingResponse } from "@/interface/feeling";
+import { FeelingResponse } from "@/interface/feeling";
 
 export default async function getFeeling({
   prompt,

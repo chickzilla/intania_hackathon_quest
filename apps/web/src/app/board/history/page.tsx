@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 export default function Page() {
   const [history, setHistory] = useState<History[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [limit, setLimit] = useState<number>(5);
+  const limit = 5;
   const [page, setPage] = useState<number>(1);
   const [totalRecord, setTotalRecord] = useState<number>(0);
   const [countRecord, setCountRecord] = useState<number>(0);

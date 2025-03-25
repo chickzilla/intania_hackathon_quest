@@ -1,5 +1,3 @@
-import { ThumbsUp } from "lucide-react";
-
 export default function RatingResult() {
   return (
     <div className="flex flex-col space-y-9 ">

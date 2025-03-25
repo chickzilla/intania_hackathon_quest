@@ -52,7 +52,7 @@ export default function ResultItem({
 					size={sizeCircle + 30}
 					sx={{
 						color: color,
-						transition: "value 1.5s ease-in-out", // smooth transition for progress
+						transition: "value 1.5s ease-in-out", 
 					}}
 				/>
 				<IconContainer>{children}</IconContainer>

@@ -1,7 +1,3 @@
-/*export interface GetHistoryResponse{
-
-}*/
-
 export interface History{
     id: number;
     prompt : string;

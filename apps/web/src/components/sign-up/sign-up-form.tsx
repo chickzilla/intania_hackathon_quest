@@ -10,8 +10,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
-  FormMessage,
 } from "../ui/form";
 import { textFieldWhiteStyle } from "@/style/text-field-mui-style";
 import SignUp from "@/services/signUp";

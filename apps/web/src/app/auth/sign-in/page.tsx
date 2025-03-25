@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function LoginPage() {
   const [finishedAllRedered, setFinishedAllRedered] = useState(false);
+  
   useEffect(() => {
     setFinishedAllRedered(true);
   }, [finishedAllRedered]);

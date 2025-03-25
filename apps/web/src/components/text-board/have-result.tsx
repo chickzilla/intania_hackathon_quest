@@ -1,9 +1,5 @@
 import ResultItem from "./result-item";
-import HelpSearchQuery from "./help-search-query";
-import ResultHover from "./result-hover";
-import ResultDescription from "./result-description";
 import { FeelingResponse } from "@/interface/feeling";
-import { Drawer } from "../ui/drawer";
 
 export default function HaveResult({
 	resultPrompt,

@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { IoLogoGithub } from "react-icons/io5";
-
 export default function Footer() {
 	return (
 		<footer className="bg-transparent text-white text-center pb-5 fixed bottom-0 bg-slate-700">

@@ -1,20 +1,20 @@
 export const textFieldWhiteStyle = {
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'gray', // Change border color to white
+        borderColor: 'gray', 
         backgroundColor: 'transparent',
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'orange', // Change border color when focused
+        borderColor: 'orange', 
       },
     },
     '& input': {
-        fontSize: '0.85rem', // Adjust font size if needed
+        fontSize: '0.85rem', 
       },
     '& .MuiInputLabel-root': {
-      color: 'gray', // Change label color to white
+      color: 'gray',
       '&.Mui-focused': {
-        color: 'orange', // Ensure label color is white when focused
+        color: 'orange', 
       },
 
     },

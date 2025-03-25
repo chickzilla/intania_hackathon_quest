@@ -19,11 +19,9 @@ import {
 } from "@/components/ui/table";
 import {
 	Dialog,
-	DialogTrigger,
 	DialogContent,
 	DialogHeader,
 	DialogTitle,
-	DialogDescription,
 } from "@/components/ui/dialog";
 import { MoodDescriptionEmojiHistory } from "@/constant/emoji";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -67,7 +65,6 @@ function getHighestProbKey(data: any) {
 		SurpriseProb: data.SurpriseProb,
 	};
 
-	// Find the key with the highest probability
 	const [highestProbKey] = Object.entries(emotions).reduce(
 		([maxKey, maxValue], [currentKey, currentValue]) =>
 			currentValue > maxValue ? [currentKey, currentValue] : [maxKey, maxValue],

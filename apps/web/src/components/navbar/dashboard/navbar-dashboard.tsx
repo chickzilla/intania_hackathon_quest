@@ -12,14 +12,12 @@ import { IoLogoGithub } from "react-icons/io5";
 export default function NavbarDashBoard() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const [expanded, setExpanded] = useState(false); // Default to unexpanded
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     if (!isSmallScreen) {
-      // Always expanded on larger screens
       setExpanded(true);
     } else {
-      // Use localStorage for smaller screens
       const expandedDefault =
         typeof window !== "undefined"
           ? localStorage.getItem("navbarExpanded")
@@ -39,7 +37,6 @@ export default function NavbarDashBoard() {
       } ${isSmallScreen && expanded ? "z-50" : ""}`}
       style={{ width: expanded ? "240px" : "100px" }}
     >
-      {/* Hide button if not a small screen */}
       {isSmallScreen && (
         <button
           onClick={() => {

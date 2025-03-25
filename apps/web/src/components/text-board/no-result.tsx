@@ -1,5 +1,5 @@
 import { Telescope } from "lucide-react";
-import { Send, Award } from "lucide-react";
+import { Send } from "lucide-react";
 
 export default function NoResult() {
 	return (

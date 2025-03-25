@@ -1,4 +1,4 @@
-import { History, HistoryForTable } from "@/interface/history";
+import { History } from "@/interface/history";
 import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<History>[] = [
