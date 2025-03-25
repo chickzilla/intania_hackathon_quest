@@ -9,15 +9,16 @@ async function bootstrap() {
   const expressApp = express();
 
   const trpc = app.get(TrpcRouter);
-  trpc.applyMiddleware(app);
+  trpc.applyMiddleware(app)
 
   app.enableCors({
-    origin: process.env.CLIENT_URL,
+    origin: 'http://localhost:3000',
     credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS'], 
   });
 
   app.use(expressApp);
-  await app.listen(8000);
+  await app.listen(8080);
 }
 bootstrap();
-console.log('Server running at http://localhost:8000');
+console.log('Server running at http://localhost:8080');

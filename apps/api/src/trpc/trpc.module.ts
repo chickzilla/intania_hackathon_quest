@@ -1,13 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TrpcRouter } from './trpc.router';
 import { TrpcService } from './trpc.service';
-import { AuthModule } from 'src/auth/auth.module';
-import { AuthService } from 'src/auth/auth.service';
-import { AuthRouter } from './routers/auth.router';
+import { TextAiModule } from 'src/text-ai/text-ai.module';
+import { TextAiRouter } from './routers/text-ai.router';
 
 @Module({
-  imports: [AuthModule],
-  providers: [TrpcService, TrpcRouter, AuthRouter],
+  imports: [TextAiModule],
+  providers: [TrpcService, TrpcRouter, TextAiRouter],
   exports: [TrpcService],
 })
 export class TrpcModule {}

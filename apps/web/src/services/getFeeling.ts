@@ -1,3 +1,4 @@
+import { trpc } from "@/app/trpc";
 import Feeling, { FeelingResponse } from "@/interface/feeling";
 
 export default async function getFeeling({
@@ -5,22 +6,9 @@ export default async function getFeeling({
 }: {
   prompt: string;
 }): Promise<FeelingResponse> {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   
-  const response = await fetch(
-    `${API_URL}/result-text`, {
-      method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ prompt : prompt }),
-      credentials: 'include'
-    }
-  );
+  const data = await trpc.ai.predict.mutate({ prompt });
+  console.log("test ", data);
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch feeling");
-  }
-
-  return await response.json();
+  return data;
 }

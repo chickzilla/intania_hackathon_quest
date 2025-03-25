@@ -1,9 +1,6 @@
 import Image from "next/image";
 import NavbarMiddleItem from "./navbar_middle_item";
-import { cookies } from "next/headers";
 import Link from "next/link";
-import LoginMenu from "./login-menu";
-import AvartarProfile from "./avatarProfile";
 
 export default function Navbar({ isTextBlack }: { isTextBlack: boolean }) {
   return (

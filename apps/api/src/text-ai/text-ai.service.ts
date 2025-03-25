@@ -2,8 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import axios from 'axios';
 import { UserHistory } from 'src/entities/userHistory.entity';
-import { CustomRequest } from 'src/interfaces/customRequest';
-import TextResponseData from 'src/interfaces/textResponseData';
+import TextResponseData, { AiResponseData } from 'src/interfaces/textResponseData';
 import { Repository } from 'typeorm';
 //import { config } from 'dotenv';
 import { Response } from 'express';
@@ -17,8 +16,8 @@ export class TextAiService {
     private readonly historyRepository: Repository<UserHistory>,
   ) {}
 
-  async sendPrompt(req: CustomRequest, res: Response): Promise<Response> {
-    const { prompt } = req.body;
+  async sendPrompt(prompt : string){
+    
     const textAIURL = process.env.TEXT_AI_URL;
 
     if (!textAIURL) {
@@ -32,7 +31,7 @@ export class TextAiService {
       );
       const responseData = response.data;
 
-      if (req.email) {
+      /*if (req.email) {
         const newHistory = this.historyRepository.create({
           userId: req.userId,
           prompt,
@@ -44,16 +43,17 @@ export class TextAiService {
           fearProb: responseData.data.fear,
         });
         await this.historyRepository.save(newHistory);
-      }
+      }*/
 
-      return res.status(200).json({
+      return {
         sadness: responseData.data.sadness,
         joy: responseData.data.joy,
         love: responseData.data.love,
         anger: responseData.data.anger,
         fear: responseData.data.fear,
         surprise: responseData.data.surprise,
-      });
+      }
+      console.log(responseData);
     } catch (error) {
       throw new Error('Failed to communicate with Text-AI service');
     }

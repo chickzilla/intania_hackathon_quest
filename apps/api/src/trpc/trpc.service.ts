@@ -7,4 +7,5 @@ export class TrpcService {
   trpc = initTRPC.context<Context>().create();
   router = this.trpc.router;
   procedure = this.trpc.procedure;
+
 }
