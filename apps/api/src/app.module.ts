@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { join } from 'path';
 import { HistoryModule } from './history/history.module';
 import { TextAiModule } from './text-ai/text-ai.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { TextAiModule } from './text-ai/text-ai.module';
     TrpcModule,
     HistoryModule,
     TextAiModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
